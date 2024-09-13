@@ -1,0 +1,523 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99D0FA7D2C94F91D0091A28E /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 99D0FA7C2C94F91D0091A28E /* RealityKitContent */; };
+		99D0FAA42C94F9CA0091A28E /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99D0FAA32C94F9CA0091A28E /* DunneAudioKit */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		99D0FA932C94F91F0091A28E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D0FA6F2C94F91D0091A28E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99D0FA762C94F91D0091A28E;
+			remoteInfo = ShareplayMusicCollab;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		99D0FA772C94F91D0091A28E /* ShareplayMusicCollab.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ShareplayMusicCollab.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99D0FA7B2C94F91D0091A28E /* RealityKitContent */ = {isa = PBXFileReference; lastKnownFileType = wrapper; path = RealityKitContent; sourceTree = "<group>"; };
+		99D0FA922C94F91F0091A28E /* ShareplayMusicCollabTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ShareplayMusicCollabTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		99D0FA982C94F91F0091A28E /* Exceptions for "ShareplayMusicCollab" folder in "ShareplayMusicCollab" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 99D0FA762C94F91D0091A28E /* ShareplayMusicCollab */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
+/* Begin PBXFileSystemSynchronizedRootGroup section */
+		99D0FA792C94F91D0091A28E /* ShareplayMusicCollab */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				99D0FA982C94F91F0091A28E /* Exceptions for "ShareplayMusicCollab" folder in "ShareplayMusicCollab" target */,
+			);
+			path = ShareplayMusicCollab;
+			sourceTree = "<group>";
+		};
+		99D0FA952C94F91F0091A28E /* ShareplayMusicCollabTests */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = ShareplayMusicCollabTests;
+			sourceTree = "<group>";
+		};
+/* End PBXFileSystemSynchronizedRootGroup section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99D0FA742C94F91D0091A28E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99D0FA7D2C94F91D0091A28E /* RealityKitContent in Frameworks */,
+				99D0FAA42C94F9CA0091A28E /* DunneAudioKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99D0FA8F2C94F91F0091A28E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		99D0FA6E2C94F91D0091A28E = {
+			isa = PBXGroup;
+			children = (
+				99D0FA792C94F91D0091A28E /* ShareplayMusicCollab */,
+				99D0FA7A2C94F91D0091A28E /* Packages */,
+				99D0FA952C94F91F0091A28E /* ShareplayMusicCollabTests */,
+				99D0FA782C94F91D0091A28E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		99D0FA782C94F91D0091A28E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99D0FA772C94F91D0091A28E /* ShareplayMusicCollab.app */,
+				99D0FA922C94F91F0091A28E /* ShareplayMusicCollabTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99D0FA7A2C94F91D0091A28E /* Packages */ = {
+			isa = PBXGroup;
+			children = (
+				99D0FA7B2C94F91D0091A28E /* RealityKitContent */,
+			);
+			path = Packages;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99D0FA762C94F91D0091A28E /* ShareplayMusicCollab */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99D0FA992C94F91F0091A28E /* Build configuration list for PBXNativeTarget "ShareplayMusicCollab" */;
+			buildPhases = (
+				99D0FA732C94F91D0091A28E /* Sources */,
+				99D0FA742C94F91D0091A28E /* Frameworks */,
+				99D0FA752C94F91D0091A28E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			fileSystemSynchronizedGroups = (
+				99D0FA792C94F91D0091A28E /* ShareplayMusicCollab */,
+			);
+			name = ShareplayMusicCollab;
+			packageProductDependencies = (
+				99D0FA7C2C94F91D0091A28E /* RealityKitContent */,
+				99D0FAA32C94F9CA0091A28E /* DunneAudioKit */,
+			);
+			productName = ShareplayMusicCollab;
+			productReference = 99D0FA772C94F91D0091A28E /* ShareplayMusicCollab.app */;
+			productType = "com.apple.product-type.application";
+		};
+		99D0FA912C94F91F0091A28E /* ShareplayMusicCollabTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99D0FA9E2C94F91F0091A28E /* Build configuration list for PBXNativeTarget "ShareplayMusicCollabTests" */;
+			buildPhases = (
+				99D0FA8E2C94F91F0091A28E /* Sources */,
+				99D0FA8F2C94F91F0091A28E /* Frameworks */,
+				99D0FA902C94F91F0091A28E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99D0FA942C94F91F0091A28E /* PBXTargetDependency */,
+			);
+			fileSystemSynchronizedGroups = (
+				99D0FA952C94F91F0091A28E /* ShareplayMusicCollabTests */,
+			);
+			name = ShareplayMusicCollabTests;
+			packageProductDependencies = (
+			);
+			productName = ShareplayMusicCollabTests;
+			productReference = 99D0FA922C94F91F0091A28E /* ShareplayMusicCollabTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99D0FA6F2C94F91D0091A28E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					99D0FA762C94F91D0091A28E = {
+						CreatedOnToolsVersion = 16.0;
+					};
+					99D0FA912C94F91F0091A28E = {
+						CreatedOnToolsVersion = 16.0;
+						TestTargetID = 99D0FA762C94F91D0091A28E;
+					};
+				};
+			};
+			buildConfigurationList = 99D0FA722C94F91D0091A28E /* Build configuration list for PBXProject "ShareplayMusicCollab" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99D0FA6E2C94F91D0091A28E;
+			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				99D0FAA12C94F9940091A28E /* XCRemoteSwiftPackageReference "AudioKit" */,
+				99D0FAA22C94F9C90091A28E /* XCRemoteSwiftPackageReference "DunneAudioKit" */,
+				99D0FAA52C94FAFE0091A28E /* XCRemoteSwiftPackageReference "Tonic" */,
+			);
+			preferredProjectObjectVersion = 77;
+			productRefGroup = 99D0FA782C94F91D0091A28E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99D0FA762C94F91D0091A28E /* ShareplayMusicCollab */,
+				99D0FA912C94F91F0091A28E /* ShareplayMusicCollabTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99D0FA752C94F91D0091A28E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99D0FA902C94F91F0091A28E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99D0FA732C94F91D0091A28E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99D0FA8E2C94F91F0091A28E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		99D0FA942C94F91F0091A28E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99D0FA762C94F91D0091A28E /* ShareplayMusicCollab */;
+			targetProxy = 99D0FA932C94F91F0091A28E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		99D0FA9A2C94F91F0091A28E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShareplayMusicCollab/Preview Content\"";
+				DEVELOPMENT_TEAM = 668C4Y7A9L;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forester.ShareplayMusicCollab.ShareplayMusicCollab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Debug;
+		};
+		99D0FA9B2C94F91F0091A28E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"ShareplayMusicCollab/Preview Content\"";
+				DEVELOPMENT_TEAM = 668C4Y7A9L;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "$(TARGET_NAME)/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forester.ShareplayMusicCollab.ShareplayMusicCollab;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+			};
+			name = Release;
+		};
+		99D0FA9C2C94F91F0091A28E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = xros;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		99D0FA9D2C94F91F0091A28E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu17;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = xros;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				VALIDATE_PRODUCT = YES;
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		99D0FA9F2C94F91F0091A28E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 668C4Y7A9L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forester.ShareplayMusicCollab.ShareplayMusicCollabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShareplayMusicCollab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShareplayMusicCollab";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		99D0FAA02C94F91F0091A28E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 668C4Y7A9L;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.forester.ShareplayMusicCollab.ShareplayMusicCollabTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "xros xrsimulator";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 7;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ShareplayMusicCollab.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/ShareplayMusicCollab";
+				XROS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99D0FA722C94F91D0091A28E /* Build configuration list for PBXProject "ShareplayMusicCollab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99D0FA9C2C94F91F0091A28E /* Debug */,
+				99D0FA9D2C94F91F0091A28E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99D0FA992C94F91F0091A28E /* Build configuration list for PBXNativeTarget "ShareplayMusicCollab" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99D0FA9A2C94F91F0091A28E /* Debug */,
+				99D0FA9B2C94F91F0091A28E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99D0FA9E2C94F91F0091A28E /* Build configuration list for PBXNativeTarget "ShareplayMusicCollabTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99D0FA9F2C94F91F0091A28E /* Debug */,
+				99D0FAA02C94F91F0091A28E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		99D0FAA12C94F9940091A28E /* XCRemoteSwiftPackageReference "AudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/AudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.4;
+			};
+		};
+		99D0FAA22C94F9C90091A28E /* XCRemoteSwiftPackageReference "DunneAudioKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/DunneAudioKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.6.1;
+			};
+		};
+		99D0FAA52C94FAFE0091A28E /* XCRemoteSwiftPackageReference "Tonic" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AudioKit/Tonic.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.4.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		99D0FA7C2C94F91D0091A28E /* RealityKitContent */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = RealityKitContent;
+		};
+		99D0FAA32C94F9CA0091A28E /* DunneAudioKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D0FAA22C94F9C90091A28E /* XCRemoteSwiftPackageReference "DunneAudioKit" */;
+			productName = DunneAudioKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 99D0FA6F2C94F91D0091A28E /* Project object */;
+}
