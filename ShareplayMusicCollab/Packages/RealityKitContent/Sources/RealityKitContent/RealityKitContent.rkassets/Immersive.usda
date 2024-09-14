@@ -7,7 +7,7 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial"]
+    reorder nameChildren = ["Sphere_Left", "Sphere_Right", "GridMaterial", "SaxEmitter", "SaxMaterial"]
     def Sphere "Sphere_Right" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
@@ -40,11 +40,45 @@ def Xform "Root"
 
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+    }
+
+    def Xform "SaxEmitter" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = </Root/SaxMaterial> (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                double emissionDuration = 0.5
+                token emitterShape = "Plane"
+                bool loops = 0
+                float radialAmount = 1.5707964
+                float3 shapeSize = (0.1, 0.1, 0.1)
+                bool spawnInheritParentColor = 0
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    float particleSize = 0.05
+                    float sizeMultiplierAtEndOfLifespan = 0.5
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
     }
 }
 

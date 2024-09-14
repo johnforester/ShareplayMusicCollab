@@ -293,7 +293,6 @@ struct MIDIMonitorView: View {
                 let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOff), velocity: 0, noteOn: false)
                 appModel.sendMidiMessage(message: message)
             }
-            
         }
         .onChange(of: appModel.sharePlayMidiMessage) {
             if let midiMessage = appModel.sharePlayMidiMessage {
