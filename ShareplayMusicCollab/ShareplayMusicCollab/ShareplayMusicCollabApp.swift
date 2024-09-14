@@ -9,14 +9,22 @@ import SwiftUI
 
 @main
 struct ShareplayMusicCollabApp: App {
-
+    @Environment(\.openWindow) var openWindow
     @State private var appModel = AppModel()
 
     var body: some Scene {
-        WindowGroup {
+        WindowGroup(id: "ContentView") {
             ContentView()
                 .environment(appModel)
+                .onAppear {
+                    openWindow(id: "InstrumentSelect")
+                }
         }
+        WindowGroup(id: "InstrumentSelect") {
+            InstrumentSelectView()
+                .environment(appModel)
+        }
+        
 
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
