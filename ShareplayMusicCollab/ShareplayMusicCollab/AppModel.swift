@@ -17,5 +17,5 @@ class AppModel {
         case inTransition
         case open
     }
-    var immersiveSpaceState = ImmersiveSpaceState.closed
+    var immersiveSpaceState = ImmersiveSpaceState.open
 }
