@@ -131,5 +131,17 @@ class AppModel {
         print("Group Activities session activation: ", activationSuccess ?? "unknown status")
     }
     
-    //func sendMidiMessage
+    public func sendMidiMessage(message: MidiNoteMessage) {
+        print("shareplay attemtping sending midi message")
+        
+        if let session = session, let reliableMessenger = reliableMessenger {
+            let everyoneElse = session.activeParticipants.subtracting([session.localParticipant])
+            
+            print("shareplay sending message: \(message) to \(everyoneElse)")
+            
+            reliableMessenger.send(message, to: .only(everyoneElse)) { error in
+                if let error = error { print("Message failure:", error) }
+            }
+        }
+    }
 }

@@ -47,7 +47,9 @@ struct ShareplayMusicCollabApp: App {
         WindowGroup(id: "InstrumentSelect") {
             HStack {
                 MIDIMonitorView()
+                    .environment(appModel)
                 InstrumentSelectAndShareplayView()
+                    .environment(appModel)
             }
                 .task {
                     appModel.configureGroupSessions()
