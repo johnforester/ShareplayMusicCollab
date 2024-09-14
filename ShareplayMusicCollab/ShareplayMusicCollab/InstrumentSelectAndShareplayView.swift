@@ -20,14 +20,17 @@ struct InstrumentSelectAndShareplayView: View {
             Text("Instrument Select")
             HStack {
                 Button {
+                    appModel.sampleFilename = "SaxC3"
                 } label: {
                     Text( "Sax")
                 }
                 Button {
+                    appModel.sampleFilename = "GuitarC3"
                 } label: {
                     Text( "Guitar")
                 }
                 Button {
+                    appModel.sampleFilename =  "PianoC3"
                 } label: {
                     Text( "Piano")
                 }

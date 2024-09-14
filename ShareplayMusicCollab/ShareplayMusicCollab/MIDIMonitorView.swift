@@ -81,6 +81,10 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.sampler.noteOn(note: noteNumber, velocity: velocity)
         }
     }
+    
+    func setSampleFileName(_ name: String) {
+        self.sampler.setFile(filename: name)
+    }
 
     func receivedMIDINoteOff(noteNumber: MIDINoteNumber,
                              velocity: MIDIVelocity,
@@ -304,6 +308,10 @@ struct MIDIMonitorView: View {
                     conductor.sampler.noteOff(note: MIDINoteNumber(noteNumber))
                 }
             }
+        }
+        
+        .onChange(of: appModel.sampleFilename) {
+            conductor.setSampleFileName(appModel.sampleFilename)
         }
     }
 

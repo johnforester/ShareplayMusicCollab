@@ -23,7 +23,7 @@ class AppModel {
     var immersiveSpaceState = ImmersiveSpaceState.open
     
     // Sampler
-    let sampler = JFSamplerSynth(filename: "SaxC3")
+    var sampleFilename = "SaxC3"
     
     // SharePlay Connection
     var session: GroupSession<MusicCollabShareplay>? = nil
@@ -144,4 +144,5 @@ class AppModel {
             }
         }
     }
+    
 }
