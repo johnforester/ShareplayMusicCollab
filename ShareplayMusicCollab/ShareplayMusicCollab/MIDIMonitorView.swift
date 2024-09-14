@@ -35,6 +35,7 @@ enum MIDIEventType {
 }
 
 class MIDIMonitorConductor: ObservableObject, MIDIListener {
+    let sampler = JFSamplerSynth()
     let midi = MIDI()
     @Published var data = MIDIMonitorData()
     @Published var isShowingMIDIReceived: Bool = false
@@ -73,6 +74,8 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
                     self.isShowingMIDIReceived = false
                 }
             }
+            
+            self.sampler.noteOn(note: noteNumber)
         }
     }
 
@@ -90,6 +93,8 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.data.noteOff = Int(noteNumber)
             self.data.velocity = Int(velocity)
             self.data.channel = Int(channel)
+            
+            self.sampler.noteOff(note: noteNumber)
         }
     }
 

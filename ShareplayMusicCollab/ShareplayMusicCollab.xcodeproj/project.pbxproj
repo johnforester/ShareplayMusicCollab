@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		996157A92C951C8D0045A073 /* Tonic in Frameworks */ = {isa = PBXBuildFile; productRef = 996157A82C951C8D0045A073 /* Tonic */; };
 		99D0FA7D2C94F91D0091A28E /* RealityKitContent in Frameworks */ = {isa = PBXBuildFile; productRef = 99D0FA7C2C94F91D0091A28E /* RealityKitContent */; };
 		99D0FAA42C94F9CA0091A28E /* DunneAudioKit in Frameworks */ = {isa = PBXBuildFile; productRef = 99D0FAA32C94F9CA0091A28E /* DunneAudioKit */; };
 /* End PBXBuildFile section */
@@ -58,6 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				996157A92C951C8D0045A073 /* Tonic in Frameworks */,
 				99D0FA7D2C94F91D0091A28E /* RealityKitContent in Frameworks */,
 				99D0FAA42C94F9CA0091A28E /* DunneAudioKit in Frameworks */,
 			);
@@ -73,12 +75,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		996157A72C951C8D0045A073 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		99D0FA6E2C94F91D0091A28E = {
 			isa = PBXGroup;
 			children = (
 				99D0FA792C94F91D0091A28E /* ShareplayMusicCollab */,
 				99D0FA7A2C94F91D0091A28E /* Packages */,
 				99D0FA952C94F91F0091A28E /* ShareplayMusicCollabTests */,
+				996157A72C951C8D0045A073 /* Frameworks */,
 				99D0FA782C94F91D0091A28E /* Products */,
 			);
 			sourceTree = "<group>";
@@ -122,6 +132,7 @@
 			packageProductDependencies = (
 				99D0FA7C2C94F91D0091A28E /* RealityKitContent */,
 				99D0FAA32C94F9CA0091A28E /* DunneAudioKit */,
+				996157A82C951C8D0045A073 /* Tonic */,
 			);
 			productName = ShareplayMusicCollab;
 			productReference = 99D0FA772C94F91D0091A28E /* ShareplayMusicCollab.app */;
@@ -508,6 +519,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		996157A82C951C8D0045A073 /* Tonic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 99D0FAA52C94FAFE0091A28E /* XCRemoteSwiftPackageReference "Tonic" */;
+			productName = Tonic;
+		};
 		99D0FA7C2C94F91D0091A28E /* RealityKitContent */ = {
 			isa = XCSwiftPackageProductDependency;
 			productName = RealityKitContent;
