@@ -35,7 +35,7 @@ enum MIDIEventType {
 }
 
 class MIDIMonitorConductor: ObservableObject, MIDIListener {
-    let sampler = JFSamplerSynth()
+    let sampler = JFSamplerSynth(filename: "SaxC3")
     let midi = MIDI()
     @Published var data = MIDIMonitorData()
     @Published var isShowingMIDIReceived: Bool = false
