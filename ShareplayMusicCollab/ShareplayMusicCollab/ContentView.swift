@@ -12,9 +12,10 @@ import RealityKitContent
 #if os(visionOS)
 struct ContentView: View {
     @Environment(AppModel.self) private var appModel
-
+    
     var body: some View {
         VStack {
+            // Show MIDI Monitor View after instrument is selected
             MIDIMonitorView()
                 .environment(appModel)
             //ToggleImmersiveSpaceButton()

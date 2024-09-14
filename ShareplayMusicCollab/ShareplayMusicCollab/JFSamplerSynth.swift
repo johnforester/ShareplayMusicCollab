@@ -32,6 +32,11 @@ class JFSamplerSynth: ObservableObject {
         loadWAVs()
     }
     
+    func setFile(filename: String) {
+        self.filename = filename
+        loadWAVs()
+    }
+    
     func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity) {
         sampler.play(noteNumber: note, velocity: velocity)
     }
