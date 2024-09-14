@@ -18,6 +18,7 @@ struct MusicCollabShareplay: GroupActivity, Transferable {
         metadata.title = "Play music together"
         metadata.subtitle = "Let's jam"
         metadata.supportsContinuationOnTV = false
+        metadata.type = .generic
        // metadata.previewImage = UIImage(named: "App_Icon")?.cgImage
 
         return metadata
