@@ -14,23 +14,20 @@ import Combine
 struct InstrumentSelectAndShareplayView: View {
     @Environment(AppModel.self) private var appModel
     @StateObject private var groupStateObserver = GroupStateObserver()
-
+        
     var body: some View {
         VStack {
             Text("Instrument Select")
             HStack {
                 Button {
-                    
                 } label: {
                     Text( "Sax")
                 }
                 Button {
-                    
                 } label: {
                     Text( "Guitar")
                 }
                 Button {
-                    
                 } label: {
                     Text( "Piano")
                 }
