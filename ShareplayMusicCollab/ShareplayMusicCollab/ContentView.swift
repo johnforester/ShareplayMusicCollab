@@ -9,11 +9,14 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+#if os(visionOS)
 struct ContentView: View {
+    @Environment(AppModel.self) private var appModel
 
     var body: some View {
         VStack {
             MIDIMonitorView()
+                .environment(appModel)
             //ToggleImmersiveSpaceButton()
         }
         .padding()
@@ -24,3 +27,4 @@ struct ContentView: View {
     ContentView()
         .environment(AppModel())
 }
+#endif

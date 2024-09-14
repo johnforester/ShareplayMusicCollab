@@ -32,8 +32,8 @@ class JFSamplerSynth: ObservableObject {
         loadWAVs()
     }
     
-    func noteOn(note: MIDINoteNumber) {
-        sampler.play(noteNumber: note, velocity: 127)
+    func noteOn(note: MIDINoteNumber, velocity: MIDIVelocity) {
+        sampler.play(noteNumber: note, velocity: velocity)
     }
     
     func noteOff(note: MIDINoteNumber) {
@@ -81,7 +81,7 @@ class JFSamplerSynth: ObservableObject {
         engine.output = sampler
         try! engine.start()
         
-        noteOn(note: 79)
+        noteOn(note: 79, velocity: 127)
     }
 
     func stopTest() {

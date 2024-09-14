@@ -9,6 +9,7 @@ import SwiftUI
 import RealityKit
 import RealityKitContent
 
+#if os(visionOS)
 struct ImmersiveView: View {
 
     var body: some View {
@@ -28,3 +29,5 @@ struct ImmersiveView: View {
     ImmersiveView()
         .environment(AppModel())
 }
+
+#endif

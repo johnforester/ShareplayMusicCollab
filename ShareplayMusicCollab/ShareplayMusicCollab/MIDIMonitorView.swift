@@ -35,7 +35,10 @@ enum MIDIEventType {
 }
 
 class MIDIMonitorConductor: ObservableObject, MIDIListener {
+    @Environment(AppModel.self) private var appModel
+
     let sampler = JFSamplerSynth(filename: "SaxC3")
+    
     let midi = MIDI()
     @Published var data = MIDIMonitorData()
     @Published var isShowingMIDIReceived: Bool = false
@@ -75,7 +78,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
                 }
             }
             
-            self.sampler.noteOn(note: noteNumber)
+            self.sampler.noteOn(note: noteNumber, velocity: velocity)
         }
     }
 
@@ -216,6 +219,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
 
 struct MIDIMonitorView: View {
     @StateObject private var conductor = MIDIMonitorConductor()
+    @Environment(AppModel.self) private var appModel
 
     var body: some View {
         VStack {
@@ -276,6 +280,19 @@ struct MIDIMonitorView: View {
             }
             .onDisappear {
                 conductor.stop()
+            }
+        } .onChange(of: appModel.sharePlayMidiMessage) {
+            if let midiMessage = appModel.sharePlayMidiMessage {
+                let noteNumber = midiMessage.noteNumber
+                let noteOn = midiMessage.noteOn
+                let velocity = midiMessage.velocity
+                
+                if noteOn {
+                    conductor.sampler.noteOn(note: MIDINoteNumber(noteNumber),
+                                             velocity: MIDIVelocity(velocity))
+                } else {
+                    conductor.sampler.noteOff(note: MIDINoteNumber(noteNumber))
+                }
             }
         }
     }

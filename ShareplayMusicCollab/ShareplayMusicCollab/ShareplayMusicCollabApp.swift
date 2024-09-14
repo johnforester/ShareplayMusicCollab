@@ -13,18 +13,23 @@ struct ShareplayMusicCollabApp: App {
     @State private var appModel = AppModel()
 
     var body: some Scene {
+#if os(visionOS)
+
         WindowGroup(id: "ContentView") {
             ContentView()
                 .environment(appModel)
                 .onAppear {
                     openWindow(id: "InstrumentSelect")
                 }
-        }
-        WindowGroup(id: "InstrumentSelect") {
-            InstrumentSelectView()
-                .environment(appModel)
+                .task {
+                    appModel.configureGroupSessions()
+                }
         }
         
+        WindowGroup(id: "InstrumentSelect") {
+            InstrumentSelectAndShareplayView()
+                .environment(appModel)
+        }
 
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
@@ -37,5 +42,17 @@ struct ShareplayMusicCollabApp: App {
                 }
         }
         .immersionStyle(selection: .constant(.full), in: .full)
+        
+#else
+        WindowGroup(id: "InstrumentSelect") {
+            HStack {
+                MIDIMonitorView()
+                InstrumentSelectAndShareplayView()
+            }
+                .task {
+                    appModel.configureGroupSessions()
+                }
+        }
+#endif
     }
 }

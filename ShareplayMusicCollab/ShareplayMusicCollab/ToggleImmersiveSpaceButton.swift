@@ -7,6 +7,8 @@
 
 import SwiftUI
 
+#if os(visionOS)
+
 struct ToggleImmersiveSpaceButton: View {
 
     @Environment(AppModel.self) private var appModel
@@ -56,3 +58,5 @@ struct ToggleImmersiveSpaceButton: View {
         .fontWeight(.semibold)
     }
 }
+
+#endif
