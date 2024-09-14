@@ -27,10 +27,12 @@ struct ShareplayMusicCollabApp: App {
         }
         
         WindowGroup(id: "InstrumentSelect") {
-            InstrumentSelectAndShareplayView()
-                .environment(appModel)
+            InstrumentSelectAndShareplayView(onInstrumentSelected: {
+                // Handle instrument selection if needed
+            })
+            .environment(appModel)
         }
-
+        
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)

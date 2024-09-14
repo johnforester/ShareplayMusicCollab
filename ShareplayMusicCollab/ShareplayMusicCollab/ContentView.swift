@@ -21,8 +21,10 @@ struct ContentView: View {
                 MIDIMonitorView()
                     .environment(appModel)
             } else {
-                // Show Instrument Selection first
-                InstrumentSelectAndShareplayView()
+                // Show Instrument Selection first, and update state when an instrument is selected
+                InstrumentSelectAndShareplayView(onInstrumentSelected: {
+                    instrumentSelected = true  // Update state when instrument is selected
+                })
             }
             //ToggleImmersiveSpaceButton()
         }

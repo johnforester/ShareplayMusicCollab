@@ -14,25 +14,33 @@ import Combine
 struct InstrumentSelectAndShareplayView: View {
     @Environment(AppModel.self) private var appModel
     @StateObject private var groupStateObserver = GroupStateObserver()
+    var onInstrumentSelected: () -> Void  // Closure to notify when instrument is selected
         
     var body: some View {
         VStack {
-            Text("Instrument Select")
             HStack {
                 Button {
                     appModel.sampleFilename = "SaxC3"
+                    print("Sax Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text( "Sax")
+                    Text("Sax")
                 }
+                
                 Button {
                     appModel.sampleFilename = "GuitarC3"
+                    print("Guitar Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text( "Guitar")
+                    Text("Guitar")
                 }
+                
                 Button {
-                    appModel.sampleFilename =  "PianoC3"
+                    appModel.sampleFilename = "PianoC3"
+                    print("Piano Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text( "Piano")
+                    Text("Piano")
                 }
             }
             .padding()
@@ -58,4 +66,5 @@ struct InstrumentSelectAndShareplayView: View {
             .disabled(!groupStateObserver.isEligibleForGroupSession)
         }
     }
+    
 }
