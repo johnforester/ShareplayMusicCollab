@@ -10,6 +10,8 @@ import SwiftUI
 @main
 struct ShareplayMusicCollabApp: App {
     @Environment(\.openWindow) var openWindow
+    @Environment(\.openImmersiveSpace) private var openImmersiveSpace
+
     @State private var appModel = AppModel()
 
     var body: some Scene {
@@ -23,6 +25,7 @@ struct ShareplayMusicCollabApp: App {
                 }
                 .task {
                     appModel.configureGroupSessions()
+                    await openImmersiveSpace(id: appModel.immersiveSpaceID)
                 }
         }
         
@@ -43,7 +46,6 @@ struct ShareplayMusicCollabApp: App {
                     appModel.immersiveSpaceState = .closed
                 }
         }
-        .immersionStyle(selection: .constant(.full), in: .full)
         
 #else
         WindowGroup(id: "InstrumentSelect") {

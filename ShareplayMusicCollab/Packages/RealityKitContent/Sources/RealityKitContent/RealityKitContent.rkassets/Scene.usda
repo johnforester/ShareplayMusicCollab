@@ -55,5 +55,49 @@ def Xform "Root"
         float3 xformOp:scale = (1, 1, 1)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
+
+    def Xform "SaxEmitter" (
+        prepend apiSchemas = ["MaterialBindingAPI"]
+    )
+    {
+        rel material:binding = None (
+            bindMaterialAs = "weakerThanDescendants"
+        )
+        float2 ui:nodegraph:node:pos = (20, 20)
+        int ui:nodegraph:node:stackingOrder = 1
+        quatf xformOp:orient = (1, 0, 0, 0)
+        float3 xformOp:scale = (1, 1, 1)
+        float3 xformOp:translate = (0, 0, -1.5)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter"
+        {
+            token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                int64 burstCount = 500
+                double emissionDuration = 0.5
+                token emitterShape = "Plane"
+                bool isEmitting = 1
+                bool loops = 0
+                float particleSpeed = 2
+                float radialAmount = 1.5707964
+                float3 shapeSize = (0.1, 0.1, 0.1)
+                bool spawnInheritParentColor = 0
+                token spawnOccasion = "OnBirth"
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    float particleSize = 0.05
+                    float sizeMultiplierAtEndOfLifespan = 0.5
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
+    }
 }
 

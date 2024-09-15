@@ -13,18 +13,17 @@ import RealityKitContent
 struct ImmersiveView: View {
     @Environment(AppModel.self) private var appModel
     
-    static let particleQuery = EntityQuery(where: .has(ParticleEmitterComponent.self))
-
     @State var saxParticleEmitter: ParticleEmitterComponent?
     
     var body: some View {
         RealityView { content in
             // Add the initial RealityKit content
-            if let immersiveContentEntity = try? await Entity(named: "Immersive", in: realityKitContentBundle) {
+            if let immersiveContentEntity = try? await Entity(named: "Scene", in: realityKitContentBundle) {
                 content.add(immersiveContentEntity)
                 
-                immersiveContentEntity.scene?.performQuery(Self.particleQuery).forEach { entity in
-                    if entity.name == "SaxExmitter" {
+                immersiveContentEntity.enumerateHierarchy { entity, stop in
+                    print(entity.name)
+                    if entity.name == "SaxEmitter" {
                         self.saxParticleEmitter = entity.components[ParticleEmitterComponent.self]
                     }
                 }
@@ -33,9 +32,10 @@ struct ImmersiveView: View {
             // TODO changes received from Shareplay
         }.onChange(of: appModel.localMidiMessage) {
             if appModel.localMidiMessage?.noteOn == true && saxParticleEmitter != nil {
-                saxParticleEmitter!.burst()
+                saxParticleEmitter!.simulationState = .play
+            } else if saxParticleEmitter != nil {
+                saxParticleEmitter!.simulationState = .stop
             }
-            
             // TODO effect for other instruments
         }
     }

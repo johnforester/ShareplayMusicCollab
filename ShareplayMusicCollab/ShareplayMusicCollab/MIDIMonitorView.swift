@@ -289,9 +289,11 @@ struct MIDIMonitorView: View {
             if conductor.midiEventType == MIDIEventType.noteOn {
                 let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOn), velocity: Int32(conductor.data.velocity), noteOn: true)
                 appModel.sendMidiMessage(message: message)
+                appModel.localMidiMessage = message
             }  else if conductor.midiEventType == MIDIEventType.noteOff {
                 let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOff), velocity: 0, noteOn: false)
                 appModel.sendMidiMessage(message: message)
+                appModel.localMidiMessage = message
             }
         }
         .onChange(of: appModel.sharePlayMidiMessage) {
