@@ -89,14 +89,14 @@ struct MIDIMonitorView: View {
                 let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOn),
                                               velocity: Int32(conductor.data.velocity),
                                               noteOn: true,
-                                              sampleName: appModel.instrument.sampleName)
+                                              sampleName: (appModel.instrument ?? Instrument.default).sampleName)
                 appModel.sendMidiMessage(message: message)
                 appModel.localMidiMessage = message
             }  else if conductor.midiEventType == MIDIEventType.noteOff {
                 let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOff),
                                               velocity: 0,
                                               noteOn: false,
-                                              sampleName: appModel.instrument.sampleName)
+                                              sampleName: (appModel.instrument ?? Instrument.default).sampleName)
                 appModel.sendMidiMessage(message: message)
                 appModel.localMidiMessage = message
             }
@@ -119,7 +119,7 @@ struct MIDIMonitorView: View {
         }
         
         .onChange(of: appModel.instrument) {
-            conductor.setSampleFileName(appModel.instrument.sampleName)
+            conductor.setSampleFileName((appModel.instrument ?? Instrument.default).sampleName)
         }
     }
     

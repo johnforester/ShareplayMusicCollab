@@ -19,7 +19,7 @@ class AppModel {
     
     /// Holds the current instrument, could be optional as a part of the flow...
     /// - note: it could also be persisted in a userdefault or something like that, for UX considerations
-    var instrument: Instrument = .saxophone
+    var instrument: Instrument?
     
     /// SharePlay Connection
     var session: GroupSession<MusicCollabShareplay>? = nil

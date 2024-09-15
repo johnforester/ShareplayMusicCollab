@@ -22,4 +22,6 @@ extension Instrument {
     static let guitar = Instrument(title: "Guitar", sampleName: "GuitarC3", usdzName: "Guitar")
     static let saxophone = Instrument(title: "Saxophone", sampleName: "SaxC3", usdzName: "Saxophone")
     static let piano = Instrument(title: "Piano", sampleName: "PianoC3", usdzName: "Piano")
+    
+    static let `default` = Instrument.saxophone
 }
