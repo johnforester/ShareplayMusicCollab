@@ -49,7 +49,7 @@ def Xform "Root"
 
     def "GridMaterial" (
         active = true
-        prepend references = @Materials/GridMaterial.usda@
+        references = @Materials/GridMaterial.usda@
     )
     {
         float3 xformOp:scale = (1, 1, 1)
@@ -95,6 +95,237 @@ def Xform "Root"
 
                 def RealityKitStruct "spawnedEmitter"
                 {
+                }
+            }
+        }
+    }
+
+    def "Guitar" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.5707963, 0)
+        }
+        references = @Guitar.usdz@
+    )
+    {
+        reorder nameChildren = ["Emitter", "Materials", "Meshes", "VFXEmitter"]
+        quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+        float3 xformOp:scale = (0.01, 0.01, 0.01)
+        float3 xformOp:translate = (-1.4973104, 1.25, -1.6417828)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def RealityKitComponent "VFXEmitter" (
+            active = false
+        )
+        {
+            uniform token info:id = "RealityKit.VFXEmitter"
+
+            def RealityKitStruct "currentState"
+            {
+                bool isLocal = 0
+                bool isLocalFields = 0
+                bool loops = 1
+                float particleSpeed = 1
+                float3 shapeSize = (0.5, 0.5, 0.5)
+                token spawnOccasion = "OnBirth"
+
+                def RealityKitStruct "mainEmitter"
+                {
+                    float particleSize = 0.1
+                    float sizeMultiplierAtEndOfLifespan = 1
+                }
+
+                def RealityKitStruct "spawnedEmitter"
+                {
+                }
+            }
+        }
+
+        def Sphere "Emitter" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Guitar/Materials/body> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.1
+            quatf xformOp:orient = (1, 0, 0, 0)
+            float3 xformOp:scale = (1, 1, 1)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:surface.connect = </Root/Guitar/Emitter/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 1, 1)
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "VFXEmitter"
+            {
+                uniform token info:id = "RealityKit.VFXEmitter"
+
+                def RealityKitStruct "currentState"
+                {
+                    bool isLocal = 0
+                    bool isLocalFields = 0
+                    bool loops = 1
+                    float particleSpeed = 1
+                    float3 shapeSize = (0.5, 0.5, 0.5)
+                    token spawnOccasion = "OnBirth"
+
+                    def RealityKitStruct "mainEmitter"
+                    {
+                        float particleSize = 0.1
+                        float sizeMultiplierAtEndOfLifespan = 1
+                    }
+
+                    def RealityKitStruct "spawnedEmitter"
+                    {
+                    }
+                }
+            }
+        }
+    }
+
+    def "Piano" (
+        active = true
+        customData = {
+            float3 rotationEulerHint = (0, 1.5707963, 0)
+        }
+        references = @Piano.usdz@
+    )
+    {
+        reorder nameChildren = ["Emitter", "Materials", "Meshes"]
+        quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+        float3 xformOp:scale = (0.002, 0.004, 0.004)
+        float3 xformOp:translate = (1.2892737, 1, -1.595581)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Sphere "Emitter" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Guitar/Materials/body> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.99999994, 0, 2.1073424e-8, 0)
+            float3 xformOp:scale = (4.9999986, 2.4999993, 2.4999993)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:surface.connect = </Root/Piano/Emitter/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 1, 1)
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "VFXEmitter"
+            {
+                uniform token info:id = "RealityKit.VFXEmitter"
+
+                def RealityKitStruct "currentState"
+                {
+                    bool isLocal = 0
+                    bool isLocalFields = 0
+                    bool loops = 1
+                    float particleSpeed = 1
+                    float3 shapeSize = (0.5, 0.5, 0.5)
+                    token spawnOccasion = "OnBirth"
+
+                    def RealityKitStruct "mainEmitter"
+                    {
+                        float particleSize = 0.1
+                        float sizeMultiplierAtEndOfLifespan = 1
+                    }
+
+                    def RealityKitStruct "spawnedEmitter"
+                    {
+                    }
+                }
+            }
+        }
+    }
+
+    def "Saxophone" (
+        active = true
+        references = @Saxophone.usdz@
+    )
+    {
+        reorder nameChildren = ["Materials", "Meshes", "Emitter"]
+        float3 xformOp:scale = (0.003, 0.003, 0.003)
+        float3 xformOp:translate = (-0.5623269, 1.25, -3.1825783)
+        uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+        def Sphere "Emitter" (
+            active = true
+            prepend apiSchemas = ["MaterialBindingAPI"]
+        )
+        {
+            rel material:binding = </Root/Guitar/Materials/body> (
+                bindMaterialAs = "weakerThanDescendants"
+            )
+            double radius = 0.1
+            float2 ui:nodegraph:node:pos = (20, 20)
+            int ui:nodegraph:node:stackingOrder = 1
+            quatf xformOp:orient = (0.70710677, 0, 0.70710677, 0)
+            float3 xformOp:scale = (3.3333328, 3.3333328, 3.3333328)
+            float3 xformOp:translate = (0, 0, 0)
+            uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
+
+            def Material "DefaultMaterial"
+            {
+                token outputs:surface.connect = </Root/Saxophone/Emitter/DefaultMaterial/DefaultSurfaceShader.outputs:surface>
+
+                def Shader "DefaultSurfaceShader"
+                {
+                    uniform token info:id = "UsdPreviewSurface"
+                    color3f inputs:diffuseColor = (1, 1, 1)
+                    float inputs:roughness = 0.75
+                    token outputs:surface
+                }
+            }
+
+            def RealityKitComponent "VFXEmitter"
+            {
+                uniform token info:id = "RealityKit.VFXEmitter"
+
+                def RealityKitStruct "currentState"
+                {
+                    bool isLocal = 0
+                    bool isLocalFields = 0
+                    bool loops = 1
+                    float particleSpeed = 1
+                    float3 shapeSize = (0.5, 0.5, 0.5)
+                    token spawnOccasion = "OnBirth"
+
+                    def RealityKitStruct "mainEmitter"
+                    {
+                        float particleSize = 0.1
+                        float sizeMultiplierAtEndOfLifespan = 1
+                    }
+
+                    def RealityKitStruct "spawnedEmitter"
+                    {
+                    }
                 }
             }
         }
