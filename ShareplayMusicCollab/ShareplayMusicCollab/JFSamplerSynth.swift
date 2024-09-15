@@ -27,8 +27,8 @@ class JFSamplerSynth: ObservableObject {
         let frequency: Float
     }
     
-    init(filename: String) {
-        self.filename = filename
+    init(filename: SampleName) {
+        self.filename = filename.rawValue
         loadWAVs()
     }
     

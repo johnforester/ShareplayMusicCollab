@@ -30,10 +30,12 @@ struct MidiNoteMessage: Codable, Equatable {
     let noteNumber: Int32
     let velocity: Int32
     let noteOn: Bool
+    let sampleName: String
     
     enum codingKeys: CodingKey {
         case noteNumber
         case velocity
         case noteOn
+        case sampleName
     }
 }

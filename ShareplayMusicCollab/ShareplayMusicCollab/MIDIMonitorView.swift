@@ -36,8 +36,12 @@ enum MIDIEventType {
 
 class MIDIMonitorConductor: ObservableObject, MIDIListener {
     @Environment(AppModel.self) private var appModel
-
-    let sampler = JFSamplerSynth(filename: "SaxC3")
+    
+    let sampler = JFSamplerSynth(filename: .Sax)
+    
+    let sharePlaySamplers = [JFSamplerSynth(filename: .Sax),
+                             JFSamplerSynth(filename: .Guitar),
+                             JFSamplerSynth(filename: .Piano)]
     
     let midi = MIDI()
     @Published var data = MIDIMonitorData()
@@ -45,19 +49,19 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
     @Published var isToggleOn: Bool = false
     @Published var oldControllerValue: Int = 0
     @Published var midiEventType: MIDIEventType = .none
-
+    
     init() {}
-
+    
     func start() {
         midi.openInput(name: "Bluetooth")
         midi.openInput()
         midi.addListener(self)
     }
-
+    
     func stop() {
         midi.closeAllInputs()
     }
-
+    
     func receivedMIDINoteOn(noteNumber: MIDINoteNumber,
                             velocity: MIDIVelocity,
                             channel: MIDIChannel,
@@ -85,7 +89,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
     func setSampleFileName(_ name: SampleName) {
         self.sampler.setFile(filename: name.rawValue)
     }
-
+    
     func receivedMIDINoteOff(noteNumber: MIDINoteNumber,
                              velocity: MIDIVelocity,
                              channel: MIDIChannel,
@@ -104,7 +108,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.sampler.noteOff(note: noteNumber)
         }
     }
-
+    
     func receivedMIDIController(_ controller: MIDIByte,
                                 value: MIDIByte,
                                 channel: MIDIChannel,
@@ -142,7 +146,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             }
         }
     }
-
+    
     func receivedMIDIAftertouch(_ pressure: MIDIByte,
                                 channel: MIDIChannel,
                                 portID _: MIDIUniqueID?,
@@ -154,7 +158,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.data.channel = Int(channel)
         }
     }
-
+    
     func receivedMIDIAftertouch(noteNumber: MIDINoteNumber,
                                 pressure: MIDIByte,
                                 channel: MIDIChannel,
@@ -168,7 +172,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.data.channel = Int(channel)
         }
     }
-
+    
     func receivedMIDIPitchWheel(_ pitchWheelValue: MIDIWord,
                                 channel: MIDIChannel,
                                 portID _: MIDIUniqueID?,
@@ -180,7 +184,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             self.data.channel = Int(channel)
         }
     }
-
+    
     func receivedMIDIProgramChange(_ program: MIDIByte,
                                    channel: MIDIChannel,
                                    portID _: MIDIUniqueID?,
@@ -200,22 +204,22 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
             }
         }
     }
-
+    
     func receivedMIDISystemCommand(_: [MIDIByte],
                                    portID _: MIDIUniqueID?,
                                    timeStamp _: MIDITimeStamp?)
     {
-//        print("sysex")
+        //        print("sysex")
     }
-
+    
     func receivedMIDISetupChange() {
         // Do nothing
     }
-
+    
     func receivedMIDIPropertyChange(propertyChangeInfo _: MIDIObjectPropertyChangeNotification) {
         // Do nothing
     }
-
+    
     func receivedMIDINotification(notification _: MIDINotification) {
         // Do nothing
     }
@@ -224,7 +228,7 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
 struct MIDIMonitorView: View {
     @StateObject private var conductor = MIDIMonitorConductor()
     @Environment(AppModel.self) private var appModel
-
+    
     var body: some View {
         VStack {
             midiReceivedIndicator
@@ -287,11 +291,17 @@ struct MIDIMonitorView: View {
             }
         } .onChange(of: conductor.midiEventType) {
             if conductor.midiEventType == MIDIEventType.noteOn {
-                let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOn), velocity: Int32(conductor.data.velocity), noteOn: true)
+                let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOn),
+                                              velocity: Int32(conductor.data.velocity),
+                                              noteOn: true,
+                                              sampleName: appModel.sampleFilename.rawValue)
                 appModel.sendMidiMessage(message: message)
                 appModel.localMidiMessage = message
             }  else if conductor.midiEventType == MIDIEventType.noteOff {
-                let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOff), velocity: 0, noteOn: false)
+                let message = MidiNoteMessage(noteNumber: Int32(conductor.data.noteOff),
+                                              velocity: 0,
+                                              noteOn: false,
+                                              sampleName: appModel.sampleFilename.rawValue)
                 appModel.sendMidiMessage(message: message)
                 appModel.localMidiMessage = message
             }
@@ -302,11 +312,13 @@ struct MIDIMonitorView: View {
                 let noteOn = midiMessage.noteOn
                 let velocity = midiMessage.velocity
                 
-                if noteOn {
-                    conductor.sampler.noteOn(note: MIDINoteNumber(noteNumber),
-                                             velocity: MIDIVelocity(velocity))
-                } else {
-                    conductor.sampler.noteOff(note: MIDINoteNumber(noteNumber))
+                if let sampler = conductor.sharePlaySamplers.first(where: { $0.filename == midiMessage.sampleName }) {
+                    if noteOn {
+                        sampler.noteOn(note: MIDINoteNumber(noteNumber),
+                                       velocity: MIDIVelocity(velocity))
+                    } else {
+                        sampler.noteOff(note: MIDINoteNumber(noteNumber))
+                    }
                 }
             }
         }
@@ -315,7 +327,7 @@ struct MIDIMonitorView: View {
             conductor.setSampleFileName(appModel.sampleFilename)
         }
     }
-
+    
     var midiReceivedIndicator: some View {
         HStack(spacing: 15) {
             Text("MIDI In")

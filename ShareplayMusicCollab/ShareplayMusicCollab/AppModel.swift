@@ -36,7 +36,7 @@ class AppModel {
     // SharePlay Message Sync
     var sharePlayMidiMessage: MidiNoteMessage?
     var localMidiMessage: MidiNoteMessage?
-    
+        
 #if os(visionOS)
     var coordinator: SystemCoordinator?
 #endif
