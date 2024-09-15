@@ -78,9 +78,10 @@ struct ImmersiveView: View {
                     noteCollection.addChild(cube)
                 }
             }
+//            // Add the noteCollection to the RealityKit scene content
             content.add(noteCollection)
         }.onChange(of: appModel.sharePlayMidiMessage) {
-            // TODO changes received from Shareplay
+            triggerRandomCube(noteCollection: noteCollection)
         }.onChange(of: appModel.localMidiMessage) {
             if appModel.localMidiMessage?.noteOn == true {
                 if appModel.localMidiMessage?.sampleName == SampleName.Guitar.rawValue {
@@ -90,6 +91,8 @@ struct ImmersiveView: View {
                 } else if appModel.localMidiMessage?.sampleName == SampleName.Piano.rawValue {
                     pianoEmitter?.isEnabled = true
                 }
+                // When the MIDI message changes, trigger a random cube
+                triggerRandomCube(noteCollection: noteCollection)
             } else if appModel.localMidiMessage?.noteOn == false  {
                 if appModel.localMidiMessage?.sampleName == SampleName.Guitar.rawValue {
                     guitarEmitter?.isEnabled = false
@@ -119,7 +122,6 @@ func generateRandomCube() -> ModelEntity {
     // Generate the cube mesh with the random size
     let cube = ModelEntity(mesh: .generateBox(size: size))
     
-    // Create a material with random color, roughness, and metallic properties
     let material = SimpleMaterial(
         color: getRandomColor(),
         roughness: MaterialScalarParameter(floatLiteral: Float.random(in: 0.0...1.0)),
@@ -139,10 +141,28 @@ func generateRandomCube() -> ModelEntity {
     cube.components.set(
         InputTargetComponent(allowedInputTypes: [.direct, .indirect])
     )
-    
+    cube.physicsBody = PhysicsBodyComponent() // Set initial physics properties
     return cube
 }
 
+// Function to trigger a random cube's physics
+func triggerRandomCube(noteCollection: Entity) {
+    // Get all the children (cubes) from the noteCollection
+    let cubes = noteCollection.children.compactMap { $0 as? ModelEntity }
+    
+    // Select a random cube
+    if let randomCube = cubes.randomElement() {
+        // Log the name of the triggered cube
+        print("Triggered cube: \(randomCube.name)")
+        
+        // Apply dynamic physics to the randomly selected cube
+        randomCube.physicsBody = PhysicsBodyComponent(
+            massProperties: .default,
+            material: .generate(friction: 0.1, restitution: 0.5),
+            mode: .dynamic
+        )
+    }
+}
 
 #Preview(immersionStyle: .full) {
     ImmersiveView()
