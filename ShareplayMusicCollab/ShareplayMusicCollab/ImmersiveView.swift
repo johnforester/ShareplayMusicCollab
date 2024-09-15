@@ -8,6 +8,7 @@
 import SwiftUI
 import RealityKit
 import RealityKitContent
+import CoreMIDI
 
 #if os(visionOS)
 struct ImmersiveView: View {
@@ -37,6 +38,7 @@ struct ImmersiveView: View {
                     cube.position.y = 1.75 // Adjust the y-position as needed
                     cube.position.x = Float(x)
                     cube.position.z = Float(z)
+                    cube.name = "NoteCube_\(x)_\(z)"
                     noteCollection.addChild(cube)
                 }
             }
@@ -53,6 +55,7 @@ struct ImmersiveView: View {
         }
     }
 }
+
 func getRandomColor() -> UIColor {
     let red = CGFloat.random(in: 0...1)
     let green = CGFloat.random(in: 0...1)
@@ -92,6 +95,7 @@ func generateRandomCube() -> ModelEntity {
     
     return cube
 }
+
 
 #Preview(immersionStyle: .full) {
     ImmersiveView()
