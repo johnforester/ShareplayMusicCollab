@@ -21,7 +21,7 @@ import CoreBluetooth
 
 
 struct MIDIMonitorView: View {
-    @StateObject private var conductor = MIDIMonitorConductor()
+    @Environment(MIDIMonitorConductor.self) private var conductor
     @Environment(AppModel.self) private var appModel
     
     var body: some View {

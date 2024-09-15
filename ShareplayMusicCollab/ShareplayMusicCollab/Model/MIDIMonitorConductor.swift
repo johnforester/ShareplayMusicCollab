@@ -13,8 +13,7 @@ import CoreBluetooth
 import SwiftUI
 import OSLog
 
-class MIDIMonitorConductor: NSObject, ObservableObject, MIDIListener {
-    @Environment(AppModel.self) private var appModel
+@Observable class MIDIMonitorConductor: NSObject, MIDIListener {
     
     /// Used to "prime" the BLE connection to MIDI Bluetooth devices....
     private var centralManager: CBCentralManager!
@@ -27,11 +26,11 @@ class MIDIMonitorConductor: NSObject, ObservableObject, MIDIListener {
                              JFSamplerSynth(filename: .Piano)]
     
     let midi = MIDI()
-    @Published var data = MIDIMonitorData()
-    @Published var isShowingMIDIReceived: Bool = false
-    @Published var isToggleOn: Bool = false
-    @Published var oldControllerValue: Int = 0
-    @Published var midiEventType: MIDIEventType = .none
+    var data = MIDIMonitorData()
+    var isShowingMIDIReceived: Bool = false
+    var isToggleOn: Bool = false
+    var oldControllerValue: Int = 0
+    var midiEventType: MIDIEventType = .none
     
     
     

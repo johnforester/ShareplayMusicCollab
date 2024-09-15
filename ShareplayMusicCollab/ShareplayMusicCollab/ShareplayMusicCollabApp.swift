@@ -15,6 +15,7 @@ struct ShareplayMusicCollabApp: App {
 #endif
     
     @State private var appModel = AppModel()
+    @State private var midiMonitorConsuctor = MIDIMonitorConductor()
 
     var body: some Scene {
 #if os(visionOS)
@@ -22,6 +23,7 @@ struct ShareplayMusicCollabApp: App {
         WindowGroup(id: "ContentView") {
             ContentView()
                 .environment(appModel)
+                .environment(midiMonitorConsuctor)
                 .task {
                     appModel.configureGroupSessions()
                     await openImmersiveSpace(id: appModel.immersiveSpaceID)

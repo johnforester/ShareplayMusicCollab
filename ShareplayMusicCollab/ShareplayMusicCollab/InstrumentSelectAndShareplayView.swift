@@ -13,8 +13,10 @@ import Combine
 
 struct InstrumentSelectAndShareplayView: View {
     @Environment(AppModel.self) private var appModel
+    @Environment(MIDIMonitorConductor.self) private var midiMonitorConductor
+    
     @StateObject private var groupStateObserver = GroupStateObserver()
-        
+    
     var body: some View {
         VStack {
             HStack {
@@ -22,8 +24,8 @@ struct InstrumentSelectAndShareplayView: View {
                     Button {
                         appModel.instrument = instrument
                     } label: {
-Model3DView(modelName: instrument.usdzName)
-.frame(width: 200, height: 200)
+                        Model3DView(modelName: instrument.usdzName)
+                            .frame(width: 200, height: 200)
                         Text(instrument.title)
                     }
                     .background(appModel.instrument == instrument ? .regularMaterial : .ultraThin )
@@ -31,6 +33,10 @@ Model3DView(modelName: instrument.usdzName)
                 
             }
             .padding()
+            .onChange(of: appModel.instrument) { _,_ in
+                midiMonitorConductor.stop()
+                midiMonitorConductor.start()
+            }
             
             
             Button {
