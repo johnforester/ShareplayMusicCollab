@@ -82,8 +82,8 @@ class MIDIMonitorConductor: ObservableObject, MIDIListener {
         }
     }
     
-    func setSampleFileName(_ name: String) {
-        self.sampler.setFile(filename: name)
+    func setSampleFileName(_ name: SampleName) {
+        self.sampler.setFile(filename: name.rawValue)
     }
 
     func receivedMIDINoteOff(noteNumber: MIDINoteNumber,

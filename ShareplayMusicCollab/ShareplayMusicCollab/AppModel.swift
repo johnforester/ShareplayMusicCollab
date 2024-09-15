@@ -23,7 +23,7 @@ class AppModel {
     var immersiveSpaceState = ImmersiveSpaceState.open
     
     // Sampler
-    var sampleFilename = "SaxC3"
+    var sampleFilename: SampleName = .Sax
     
     // SharePlay Connection
     var session: GroupSession<MusicCollabShareplay>? = nil
@@ -53,7 +53,7 @@ class AppModel {
                 // Spatial coordination.
                 if let coordinator = await newSession.systemCoordinator {
                     var config = SystemCoordinator.Configuration()
-                    config.spatialTemplatePreference = .sideBySide
+                    config.spatialTemplatePreference = .conversational
                     config.supportsGroupImmersiveSpace = true
                     coordinator.configuration = config
                     

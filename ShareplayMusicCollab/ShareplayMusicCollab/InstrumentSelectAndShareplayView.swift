@@ -20,7 +20,7 @@ struct InstrumentSelectAndShareplayView: View {
         VStack {
             HStack {
                 Button {
-                    appModel.sampleFilename = "SaxC3"
+                    appModel.sampleFilename = .Sax
                     print("Sax Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
@@ -28,7 +28,7 @@ struct InstrumentSelectAndShareplayView: View {
                 }
                 
                 Button {
-                    appModel.sampleFilename = "GuitarC3"
+                    appModel.sampleFilename = .Guitar
                     print("Guitar Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
@@ -36,7 +36,7 @@ struct InstrumentSelectAndShareplayView: View {
                 }
                 
                 Button {
-                    appModel.sampleFilename = "PianoC3"
+                    appModel.sampleFilename = .Piano
                     print("Piano Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
