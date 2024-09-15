@@ -24,24 +24,33 @@ struct InstrumentSelectAndShareplayView: View {
                     print("Sax Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text("Sax")
+                    Model3DView(modelName: "Saxophone")
+                    .frame(width: 200, height: 200)
+//                    Text("Sax")
                 }
+                
                 
                 Button {
                     appModel.sampleFilename = .Guitar
                     print("Guitar Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text("Guitar")
+                    Model3DView(modelName: "Guitar")
+                    .frame(width: 200, height: 200)
+//                    Text("Guitar")
                 }
+                
                 
                 Button {
                     appModel.sampleFilename = .Piano
                     print("Piano Selected")
                     onInstrumentSelected()  // Notify parent view of the selection
                 } label: {
-                    Text("Piano")
+                    Model3DView(modelName: "Piano")
+                    .frame(width: 200, height: 200)
+//                    Text("Piano")
                 }
+                
             }
             .padding()
             Button {
