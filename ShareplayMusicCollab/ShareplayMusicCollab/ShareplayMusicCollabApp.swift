@@ -10,8 +10,10 @@ import SwiftUI
 @main
 struct ShareplayMusicCollabApp: App {
     @Environment(\.openWindow) var openWindow
+#if os(visionOS)
     @Environment(\.openImmersiveSpace) private var openImmersiveSpace
-
+#endif
+    
     @State private var appModel = AppModel()
 
     var body: some Scene {
@@ -20,22 +22,12 @@ struct ShareplayMusicCollabApp: App {
         WindowGroup(id: "ContentView") {
             ContentView()
                 .environment(appModel)
-                .onAppear {
-                    openWindow(id: "InstrumentSelect")
-                }
                 .task {
                     appModel.configureGroupSessions()
                     await openImmersiveSpace(id: appModel.immersiveSpaceID)
                 }
         }
-        
-        WindowGroup(id: "InstrumentSelect") {
-            InstrumentSelectAndShareplayView(onInstrumentSelected: {
-                // Handle instrument selection if needed
-            })
-            .environment(appModel)
-        }
-        
+                
         ImmersiveSpace(id: appModel.immersiveSpaceID) {
             ImmersiveView()
                 .environment(appModel)
@@ -49,12 +41,19 @@ struct ShareplayMusicCollabApp: App {
         
 #else
         WindowGroup(id: "InstrumentSelect") {
-            HStack {
-                MIDIMonitorView()
-                    .environment(appModel)
+            TabView {
                 InstrumentSelectAndShareplayView()
-                    .environment(appModel)
+                    .tabItem {
+                        Label("Select your flavoure", systemImage: "guitars")
+                    }
+                
+                MIDIMonitorView()
+                    .tabItem {
+                        Label("MIDI monitor", systemImage: "music.quarternote.3")
+                    }
+
             }
+            .environment(appModel)
                 .task {
                     appModel.configureGroupSessions()
                 }

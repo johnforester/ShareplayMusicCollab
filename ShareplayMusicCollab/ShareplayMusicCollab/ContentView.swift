@@ -14,13 +14,20 @@ struct ContentView: View {
     @Environment(AppModel.self) private var appModel
     
     var body: some View {
-        VStack {
+        TabView {
+            InstrumentSelectAndShareplayView()
+                .tabItem {
+                    Label("Select your flavoure", systemImage: "guitars")
+                }
+            
             // Show MIDI Monitor View after instrument is selected
             MIDIMonitorView()
-                .environment(appModel)
-            //ToggleImmersiveSpaceButton()
+                .tabItem {
+                    Label("MIDI monitor", systemImage: "music.quarternote.3")
+                }
         }
         .padding()
+        .environment(appModel)
     }
 }
 
