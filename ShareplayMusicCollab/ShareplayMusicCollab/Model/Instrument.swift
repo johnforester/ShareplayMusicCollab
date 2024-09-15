@@ -19,7 +19,7 @@ struct Instrument: Identifiable, Equatable {
 extension Instrument {
     /// List all the available instruments....
     static var all: [Instrument] = [.guitar, .piano, .saxophone]
-    static let guitar = Instrument(title: "Guitar", sampleName: "GuitarC3", usdzName: "guitar")
-    static let saxophone = Instrument(title: "Saxophone", sampleName: "SaxC3", usdzName: "sax")
-    static let piano = Instrument(title: "Piano", sampleName: "PianoC3", usdzName: "piano")
+    static let guitar = Instrument(title: "Guitar", sampleName: "GuitarC3", usdzName: "Guitar")
+    static let saxophone = Instrument(title: "Saxophone", sampleName: "SaxC3", usdzName: "Saxophone")
+    static let piano = Instrument(title: "Piano", sampleName: "PianoC3", usdzName: "Piano")
 }
