@@ -65,7 +65,23 @@ struct ImmersiveView: View {
                 }
             }
         }.onChange(of: appModel.sharePlayMidiMessage) {
-            // TODO changes received from Shareplay
+            if appModel.sharePlayMidiMessage?.noteOn == true {
+                if appModel.sharePlayMidiMessage?.sampleName == SampleName.Guitar.rawValue {
+                    guitarEmitter?.isEnabled = true
+                } else if appModel.sharePlayMidiMessage?.sampleName == SampleName.Sax.rawValue {
+                    saxEmitter?.isEnabled = true
+                } else if appModel.sharePlayMidiMessage?.sampleName == SampleName.Piano.rawValue {
+                    pianoEmitter?.isEnabled = true
+                }
+            } else if appModel.sharePlayMidiMessage?.noteOn == false  {
+                if appModel.sharePlayMidiMessage?.sampleName == SampleName.Guitar.rawValue {
+                    guitarEmitter?.isEnabled = false
+                } else if appModel.sharePlayMidiMessage?.sampleName == SampleName.Sax.rawValue {
+                    saxEmitter?.isEnabled = false
+                } else if appModel.sharePlayMidiMessage?.sampleName == SampleName.Piano.rawValue {
+                    pianoEmitter?.isEnabled = false
+                }
+            }
         }.onChange(of: appModel.localMidiMessage) {
             if appModel.localMidiMessage?.noteOn == true {
                 if appModel.localMidiMessage?.sampleName == SampleName.Guitar.rawValue {
