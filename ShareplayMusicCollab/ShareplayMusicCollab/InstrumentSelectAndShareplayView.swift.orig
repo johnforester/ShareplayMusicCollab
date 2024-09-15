@@ -18,15 +18,46 @@ struct InstrumentSelectAndShareplayView: View {
     var body: some View {
         VStack {
             HStack {
+<<<<<<< HEAD
+                Button {
+                    appModel.sampleFilename = .Sax
+                    print("Sax Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
+                } label: {
+                    Model3DView(modelName: "Saxophone")
+                    .frame(width: 200, height: 200)
+//                    Text("Sax")
+                }
+                
+                
+                Button {
+                    appModel.sampleFilename = .Guitar
+                    print("Guitar Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
+                } label: {
+                    Model3DView(modelName: "Guitar")
+                    .frame(width: 200, height: 200)
+//                    Text("Guitar")
+                }
+                
+                
+                Button {
+                    appModel.sampleFilename = .Piano
+                    print("Piano Selected")
+                    onInstrumentSelected()  // Notify parent view of the selection
+                } label: {
+                    Model3DView(modelName: "Piano")
+                    .frame(width: 200, height: 200)
+//                    Text("Piano")
+=======
                 ForEach(Instrument.all) { instrument in
                     Button {
                         appModel.instrument = instrument
                     } label: {
-Model3DView(modelName: instrument.usdzName)
-.frame(width: 200, height: 200)
                         Text(instrument.title)
                     }
                     .background(appModel.instrument == instrument ? .regularMaterial : .ultraThin )
+>>>>>>> 5dc3fc8 (And stage all the files)
                 }
                 
             }

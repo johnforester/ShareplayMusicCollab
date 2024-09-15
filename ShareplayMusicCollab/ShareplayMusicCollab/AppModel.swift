@@ -14,18 +14,14 @@ import Combine
 @MainActor
 @Observable
 class AppModel {
-    let immersiveSpaceID = "ImmersiveSpace"
-    enum ImmersiveSpaceState {
-        case closed
-        case inTransition
-        case open
-    }
+    /// current immersive state
     var immersiveSpaceState = ImmersiveSpaceState.open
     
-    // Sampler
-    var sampleFilename: SampleName = .Sax
+    /// Holds the current instrument, could be optional as a part of the flow...
+    /// - note: it could also be persisted in a userdefault or something like that, for UX considerations
+    var instrument: Instrument = .saxophone
     
-    // SharePlay Connection
+    /// SharePlay Connection
     var session: GroupSession<MusicCollabShareplay>? = nil
     private var subscriptions = Set<AnyCancellable>()
     var reliableMessenger: GroupSessionMessenger?
@@ -33,7 +29,7 @@ class AppModel {
     var activity: MusicCollabShareplay?
     var sessionState: GroupSession<MusicCollabShareplay>.State?
     
-    // SharePlay Message Sync
+    /// SharePlay Message Sync
     var sharePlayMidiMessage: MidiNoteMessage?
     var localMidiMessage: MidiNoteMessage?
         
@@ -144,6 +140,16 @@ class AppModel {
                 if let error = error { print("Message failure:", error) }
             }
         }
+    }
+    
+    
+    let immersiveSpaceID = "ImmersiveSpace"
+    
+    /// List of valid immersive spaces..
+    enum ImmersiveSpaceState {
+        case closed
+        case inTransition
+        case open
     }
     
 }
